@@ -1,0 +1,27 @@
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+}
+
+li + li {
+  margin-left: 0.5em;
+  &:before {
+    content: '»';
+    font-size: 1.5em;
+    display: inline-block;
+    margin-right: 0.1em;
+    transform: translateY(2px);
+  }
+}
+
+li a {
+  color: var(--link-breadcrumb-inactive);
+  &.router-link-active {
+    color: var(--link-breadcrumb-active);
+  }
+}
