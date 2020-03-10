@@ -1,1 +1,1 @@
-<input type="search" placeholder="Search for keywords, phrases, etc." i18n-placeholder class="">
+<input type="search" [(ngModel)]="searchText" placeholder="Search for keywords, phrases, etc." i18n-placeholder class="" (keyup)="onKeyPressed($event)">
