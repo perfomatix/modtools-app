@@ -8,20 +8,35 @@ import { SearchService } from '@app/core/services/search.service';
 })
 export class GenericViewComponent implements OnInit {
   response: any;
-  selectedClientId: number = 60;
+  clients = [
+    { id: 60,  name: 'Live' },
+    { id: 61,  name: 'Sandbox' }
+  ]
+  selectedClient = this.clients[0];
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
     this.getApiResponse();
-    this.searchService.storeClientId(this.selectedClientId);
   }
+
+  /**
+   * @author Sijo Kuriakose
+   * @description retrieve api response
+   * @memberof HeaderComponent
+   */
 
   getApiResponse() {
     this.searchService.getApiResponse().subscribe(response => {
       this.response = response;
     });
   }
+
+  /**
+   * @author Sijo Kuriakose
+   * @description reload
+   * @memberof HeaderComponent
+   */
 
   onReload() {
     this.searchService.onReload();

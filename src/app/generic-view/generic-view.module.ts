@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { FormsModule } from '@angular/forms';
 
 import { GenericViewComponent } from './generic-view.component';
 import { GenericViewRoutingModule } from './generic-view-routing.module';
@@ -16,6 +17,7 @@ import { SearchedDataComponent } from './searched-data/searched-data.component';
     GenericViewRoutingModule,
     SharedComponentsModule,
     BreadcrumbModule,
+    FormsModule
   ]
 })
 export class GenericViewModule { }

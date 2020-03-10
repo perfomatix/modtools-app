@@ -23,6 +23,11 @@ export class SearchedDataComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * @author Sijo Kuriakose
+   * @description format topics to fetch keys
+   * @memberof HeaderComponent
+   */
   formatTopics() {
     this.topicsArr = Object.keys(this.apiResponse && this.apiResponse.topics);
   }

@@ -24,18 +24,15 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.subscribeToClientId();
     this.subscribeToReload();
     this.user = await this.UserService.me();
   }
 
-  subscribeToClientId() {
-    this.searchService.getClientId().subscribe(clientId => {
-      this.clientId = clientId;
-      this.onSearch(this.searchString);
-    })
-  }
-
+  /**
+   * @author Sijo Kuriakose
+   * @description reload subscription
+   * @memberof HeaderComponent
+   */
   subscribeToReload() {
     this.searchService.getReload().subscribe(data => {
       if (data) {
@@ -47,17 +44,15 @@ export class HeaderComponent implements OnInit {
   onUserChangedClient (newClient:number) {
     // TODO #codereview This smells bad.
     // Oughtn't I be able to write this as this.UserService.preferences.language = newLanguage?
-    const prefs = this.UserService.preferences;
-    prefs.lastClientId = newClient;
-    this.UserService.preferences = prefs;
+    this.UserService.preferences.lastClientId = newClient;
+    this.UserService.preferences = this.UserService.preferences;
   }
 
   onUserChangedLanguage (newLanguage:string) {
     // TODO #codereview This smells bad.
     // Oughtn't I be able to write this as this.UserService.preferences.language = newLanguage?
-    const prefs = this.UserService.preferences;
-    prefs.language = newLanguage;
-    this.UserService.preferences = prefs;
+    this.UserService.preferences.language = newLanguage;
+    this.UserService.preferences = this.UserService.preferences;
   }
 
   /**
