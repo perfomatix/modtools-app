@@ -5,6 +5,7 @@ import { User } from '@app/shared-components/user';
 import { SearchService } from '@app/core/services/search.service';
 import { SearchParam } from '@app/core/models/search-param.model';
 import { SearchInput } from '@app/core/models/search-input.model';
+import { AppConstants } from '@core/constants/app-constants'
 
 @Component({
   selector: 'main-header',
@@ -45,15 +46,18 @@ export class HeaderComponent implements OnInit {
    * @description search api function
    * @memberof HeaderComponent
    */
-  onSearch (event) {
-    console.log(event);
+  onSearch (searchString) {
+    console.log(searchString);
     let requestBody: SearchInput = {
-      
+      clientId: 60,
+      language: 'en', 
+      text: searchString,
+      contentType: AppConstants.contentType
     };
     let params: SearchParam = {
       extended: true
     };
-    this.searchService.classifyText().subscribe(data => {
+    this.searchService.classifyText(requestBody, params).subscribe(data => {
       console.log(data);
     })
   }
