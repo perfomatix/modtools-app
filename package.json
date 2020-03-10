@@ -87,7 +87,6 @@
     "codelyzer": "5.2.1",
     "eslint": "6.8.0",
     "eslint-plugin-import": "2.20.1",
-    "husky": "4.2.3",
     "jasmine-core": "3.5.0",
     "jasmine-spec-reporter": "4.2.1",
     "karma": "4.4.1",
@@ -110,11 +109,5 @@
       "eslint --fix",
       "git add"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
   }
 }
