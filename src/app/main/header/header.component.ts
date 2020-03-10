@@ -15,6 +15,8 @@ import { AppConstants } from '@core/constants/app-constants'
 export class HeaderComponent implements OnInit {
 
   user:User
+  clientId: number;
+  searchString: string;
 
   constructor(
     public UserService: UserService,
@@ -22,7 +24,24 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
+    this.subscribeToClientId();
+    this.subscribeToReload();
     this.user = await this.UserService.me();
+  }
+
+  subscribeToClientId() {
+    this.searchService.getClientId().subscribe(clientId => {
+      this.clientId = clientId;
+      this.onSearch(this.searchString);
+    })
+  }
+
+  subscribeToReload() {
+    this.searchService.getReload().subscribe(data => {
+      if (data) {
+        this.onSearch(this.searchString);
+      }
+    }) 
   }
 
   onUserChangedClient (newClient:number) {
@@ -47,8 +66,9 @@ export class HeaderComponent implements OnInit {
    * @memberof HeaderComponent
    */
   onSearch (searchString) {
+    this.searchString = searchString;
     let requestBody: SearchInput = {
-      clientId: 60,
+      clientId: this.clientId,
       language: 'en', 
       text: searchString,
       contentType: AppConstants.contentType.shortText

@@ -20,7 +20,7 @@
             global risk 6 or higher or vulgar risk 5 or higher
         -->
         <div class="child-topic-box" [ngClass]="(apiResponse?.topics[0] >= 6 || apiResponse?.topics[5] >= 5) ? 'red' : 'green'">
-            
+            <img class="img-width" [src]="apiResponse?.topics[0] >= 6 || apiResponse?.topics[5] >= 5 ? './assets/image/dislike.svg' : './assets/image/like.svg'"/>
             <div class="child-topic-box-text">Gobal Chat</div>
         </div>
 
@@ -28,7 +28,7 @@
             vulgar risk 6 or higher
         -->
         <div class="child-topic-box" [ngClass]="(apiResponse?.topics[5] >= 6) ? 'red': 'green'">
-            
+            <img class="img-width" [src]="apiResponse?.topics[5] >= 6 ? './assets/image/dislike.svg' : './assets/image/like.svg'"/>
             <div class="child-topic-box-text">Private chat</div>
         </div>
     </div>

@@ -13,6 +13,8 @@ import { SearchParam } from '@core/models/search-param.model'
 export class SearchService {
 
   public response = new BehaviorSubject<any>(null);
+  public clientId = new BehaviorSubject<any>(null);
+  public reload = new BehaviorSubject<boolean>(null);
 
   constructor(private httpClient: HttpClient) { }
   
@@ -27,6 +29,22 @@ export class SearchService {
 
   getApiResponse() {
     return this.response.asObservable();
+  }
+
+  storeClientId(clientId) {
+    this.clientId.next(clientId);
+  }
+
+  getClientId() {
+    return this.clientId.asObservable();
+  }
+
+  onReload() {
+    this.reload.next(true);
+  }
+
+  getReload() {
+    return this.reload.asObservable();
   }
 
 }
