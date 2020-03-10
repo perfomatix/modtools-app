@@ -13,6 +13,8 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.searchText = 'I really love scrambled eggs. They are the Shiiiiit.';
+    this.searchKeyEntered.emit(this.searchText);
   }
 
   /**

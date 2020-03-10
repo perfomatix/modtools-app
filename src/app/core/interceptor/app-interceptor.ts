@@ -1,8 +1,9 @@
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment'
 import { RequestHeader } from '@app/core/models/request-header.model';
+import { tap } from 'rxjs/operators';
 
 export class AppHttpInterceptor implements HttpInterceptor {
 
@@ -28,7 +29,10 @@ export class AppHttpInterceptor implements HttpInterceptor {
     }
     // setting the accept header
     req = req.clone({ headers: req.headers.set('Accept', 'application/json') });
-
+    req = req.clone({
+      url: `${this.apiUrl}${req.url}`
+    });
+    return next.handle(req);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-text-diagnose',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./text-diagnose.component.less']
 })
 export class TextDiagnoseComponent implements OnInit {
+
+  @Input() response: any;
 
   constructor() { }
 

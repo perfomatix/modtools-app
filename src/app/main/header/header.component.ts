@@ -52,13 +52,13 @@ export class HeaderComponent implements OnInit {
       clientId: 60,
       language: 'en', 
       text: searchString,
-      contentType: AppConstants.contentType
+      contentType: AppConstants.contentType.shortText
     };
     let params: SearchParam = {
       extended: true
     };
     this.searchService.classifyText(requestBody, params).subscribe(data => {
-      console.log(data);
+      this.searchService.storeApiResponse(data);
     })
   }
 

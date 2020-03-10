@@ -10,6 +10,7 @@ import { MainModule } from './main/main.module';
 import { SubnavModule } from './subnav/subnav.module';
 
 import { SentryErrorHandler } from 'src/app/shared-components/sentry.service';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SentryErrorHandler } from 'src/app/shared-components/sentry.service';
     SubnavModule,
     BreadcrumbModule,
     HttpClientModule,
+    CoreModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: SentryErrorHandler }

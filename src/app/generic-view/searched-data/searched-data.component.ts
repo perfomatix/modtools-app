@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AppConstants } from '@app/core/constants/app-constants';
 
 @Component({
   selector: 'app-searched-data',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchedDataComponent implements OnInit {
 
+  apiResponse: any;
+  @Input() set response(value) {
+    if (value) {
+      this.apiResponse = value;
+      this.formatTopics();
+    }
+  }
+  allTopics = AppConstants.topics;
+  topicsArr = [];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  formatTopics() {
+    this.topicsArr = Object.keys(this.apiResponse && this.apiResponse.topics);
   }
 
 }

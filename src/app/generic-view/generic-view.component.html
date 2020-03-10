@@ -19,9 +19,9 @@
   
   </header>
  <div class="d-flex">
-   <div class="data-sec"><app-text-diagnose></app-text-diagnose></div>
+   <div class="data-sec"><app-text-diagnose [response]="response"></app-text-diagnose></div>
    <section class="side">
-     <app-searched-data></app-searched-data>
+     <app-searched-data [response]="response"></app-searched-data>
    </section>
  </div> 
 
