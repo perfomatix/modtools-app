@@ -47,7 +47,6 @@ export class HeaderComponent implements OnInit {
    * @memberof HeaderComponent
    */
   onSearch (searchString) {
-    console.log(searchString);
     let requestBody: SearchInput = {
       clientId: 60,
       language: 'en', 

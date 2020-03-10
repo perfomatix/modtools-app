@@ -18,7 +18,6 @@ export class GenericViewComponent implements OnInit {
   getApiResponse() {
     this.searchService.getApiResponse().subscribe(response => {
       this.response = response;
-      console.log(response);
     });
   }
 
