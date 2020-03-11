@@ -63,3 +63,9 @@ export const DefaultClient = 0;
 
 // Set the default language to English
 export const DefaultLanguage = 'en';
+
+// Set the default client Id
+export const DefaultClientId = 60;
+
+// Set the default content type
+export const DefaultContentType = 'SHORT_TEXT';

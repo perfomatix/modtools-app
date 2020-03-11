@@ -5,7 +5,7 @@ import { User } from '@app/shared-components/user';
 import { SearchService } from '@app/core/services/search.service';
 import { SearchParam } from '@app/core/models/search-param.model';
 import { SearchInput } from '@app/core/models/search-input.model';
-import { AppConstants } from '@core/constants/app-constants'
+import { DefaultLanguage, DefaultClientId, DefaultContentType } from 'src/constants';
 
 @Component({
   selector: 'main-header',
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   clientId: number;
   searchString: string;
   selectedLangCode: string;
+  contentType: string;
 
   constructor(
     public userService: UserService,
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
     this.subscribeToReload();
     this.subscribeToChangeInClientId();
     this.subscribeToLanguageChange();
+    this.subscribeToChangeInContentType();
     this.user = await this.userService.me();
   }
 
@@ -77,10 +79,10 @@ export class HeaderComponent implements OnInit {
   onSearch (searchString) {
     this.searchString = searchString;
     const requestBody: SearchInput = {
-      clientId: this.clientId ? this.clientId : 60,
-      language: this.selectedLangCode ? this.selectedLangCode : 'en',
+      clientId: this.clientId ? this.clientId : DefaultClientId,
+      language: this.selectedLangCode ? this.selectedLangCode : DefaultLanguage,
       text: searchString,
-      contentType: AppConstants.contentType.shortText
+      contentType: this.contentType ? this.contentType : DefaultContentType
     };
     const params: SearchParam = {
       extended: true
@@ -101,6 +103,19 @@ export class HeaderComponent implements OnInit {
         this.onSearch(this.searchString);
       }
     })
+  }
+
+  /**
+   * @author Sijo Kuriakose
+   * @description content type change subscription
+   */
+  subscribeToChangeInContentType() {
+    this.searchService.getContentType().subscribe(contentType => {
+      if (contentType) {
+        this.contentType = contentType;
+        this.onSearch(this.searchString);
+      }
+    });
   }
 
 }

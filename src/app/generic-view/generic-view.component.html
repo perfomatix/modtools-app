@@ -25,6 +25,15 @@
                   [value]="language.code">{{ language.name }}</option>
         </select>
       </div>
+      <div class="mar-right">
+        <select name="client"
+          [(ngModel)]="selectedContentType"
+          (change)="onContentTypeChanged()"
+        >
+          <option *ngFor="let contentType of contentTypes"
+                  [value]="contentType.id">{{ contentType.id }}</option>
+        </select>
+      </div>
       
       <label class="switch">
           <input type="checkbox" checked>
