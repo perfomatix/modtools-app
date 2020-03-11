@@ -1,8 +1,45 @@
 <div class="container">
     <div class="mainly">
         <div class="child-of-mainly" *ngFor="let word of response?.extended;index as in">
-            <span *ngIf="word?.text !== ''">{{ word?.original }}<span *ngIf="response?.extended[in + 1]?.text === ''"><span *ngFor="let subword of response?.extended | slice:in+1:in+2">{{ subword?.original }}</span></span></span>
-            <span *ngIf="word?.text !== ''" >{{ word?.solution }}</span>
-        </div>
+            <span    *ngIf="word?.text !== ''">{{ word?.original }}<span *ngIf="response?.extended[in + 1]?.text === ''"><span *ngFor="let subword of response?.extended | slice:in+1:in+2">{{ subword?.original }}</span></span></span>
+            <span class=""  *ngIf="word?.text !== ''" >{{ word?.solution }} </span>
+            
+<div class="hover-section">
+    <div class="d-flex p-2 child-hover-section">
+            <div class="number-sec">1</div>
+            <div class="text-sec">dcdf</div>
+            <div class="subtext">en</div>
+            <div class="d-flex background-sec">
+                <span>1</span>
+                <span>1</span>
+            </div>
     </div>
+    <div class="d-flex p-2 child-hover-section">
+            <div class="number-sec">1</div>
+            <div class="text-sec">dcdf</div>
+            <div class="subtext">en</div>
+            <div class="d-flex background-sec">
+                <span>1</span>
+                <span>1</span>
+            </div>
+    </div>
+    <div class="child-hover-section p-2">
+    <div class="child-topic-box white d-flex p-2">
+           
+            <div class="child-topic-box-text">General</div>
+            <div class="child-box-number">2</div>
+            </div>
+            </div>
 </div>
+
+</div>
+
+
+</div>
+
+           
+            
+            
+            
+        </div>
+    
