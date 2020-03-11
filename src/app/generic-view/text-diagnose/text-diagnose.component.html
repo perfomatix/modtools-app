@@ -13,9 +13,9 @@
           ></span
         ></span
       >
-      <span class="" *ngIf="word?.text !== ''">{{ word?.solution }} </span>
+      <span class=""  (mouseenter)="enter(in)" (mouseleave)="leave(in)"  *ngIf="word?.text !== ''">{{ word?.solution }} </span>
 
-      <div class="hover-section">
+      <div class="hover-section" [ngClass]="{'show': indexVal===in}">
         <div class="d-flex p-2 child-hover-section">
           <div class="number-sec">1</div>
           <div class="text-sec">dcdf</div>
