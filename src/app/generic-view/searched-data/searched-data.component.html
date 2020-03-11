@@ -3,9 +3,9 @@
 <div class="d-flex align-top">
     <div class="topic">
         <div class="child-text">Topics</div>
-        <div class="child-topic-box white d-flex" *ngFor="let topic of topicsArr"> 
-            <!-- <div *ngIf="topic === '0'"><i class="material-icons icon-width">numeric-{{apiResponse?.topics[topic]}}-box</i></div>
-            <div *ngIf="topic !== '0'"><i class="material-icons icon-width">{{ allTopics[topic].icon }}</i></div> -->
+        <div class="child-topic-box white d-flex align-center" *ngFor="let topic of topicsArr"> 
+            <div *ngIf="topic === '0'"><i class="material-icons icon-width">numeric-{{apiResponse?.topics[topic]}}-box</i></div>
+            <div *ngIf="topic !== '0'"><i class="material-icons icon-width">{{ allTopics[topic].icon }}</i></div>
             <div class="child-topic-box-text">{{ allTopics[topic].name }}</div>
             <div class="child-box-number">{{ apiResponse?.topics[topic] }}</div>
         </div>
@@ -15,7 +15,7 @@
         <!--
             global risk 6 or higher or vulgar risk 5 or higher
         -->
-        <div class="child-topic-box" [ngClass]="(apiResponse?.topics[0] >= 6 || apiResponse?.topics[5] >= 5) ? 'red' : 'green'">
+        <div class="child-topic-box d-flex align-center pad" [ngClass]="(apiResponse?.topics[0] >= 6 || apiResponse?.topics[5] >= 5) ? 'red' : 'green'">
             <img class="img-width" [src]="apiResponse?.topics[0] >= 6 || apiResponse?.topics[5] >= 5 ? './assets/image/dislike.svg' : './assets/image/like.svg'"/>
             <div class="child-topic-box-text">Gobal Chat</div>
         </div>
@@ -23,7 +23,7 @@
         <!--
             vulgar risk 6 or higher
         -->
-        <div class="child-topic-box" [ngClass]="(apiResponse?.topics[5] >= 6) ? 'red': 'green'">
+        <div class="child-topic-box d-flex align-center pad" [ngClass]="(apiResponse?.topics[5] >= 6) ? 'red': 'green'">
             <img class="img-width" [src]="apiResponse?.topics[5] >= 6 ? './assets/image/dislike.svg' : './assets/image/like.svg'"/>
             <div class="child-topic-box-text">Private chat</div>
         </div>
@@ -32,17 +32,17 @@
 <hr />
 <div class="prediction-section">
     <div class="child-text">AI Prediction</div>
-    <div class="d-flex mb-2">
+    <div class="d-flex mb-2 align-center">
         <div class="child-prediction-text">en</div>
         <input type="range" min="1" max="100" step="1" [value]="apiResponse?.predictions?.lang_en * 100">
         <div class="child-prediction-text">{{ (apiResponse?.predictions?.lang_en * 100)?.toFixed(0) }}%</div>
     </div>
-    <div class="d-flex mb-2">
+    <div class="d-flex mb-2 align-center">
         <div class="child-prediction-text">fr</div>
         <input type="range" min="1" max="100" step="1" [value]="apiResponse?.predictions?.lang_fr * 100">
         <div class="child-prediction-text">{{ (apiResponse?.predictions?.lang_fr * 100)?.toFixed(0) }}%</div>
     </div>
-    <div class="d-flex">
+    <div class="d-flex align-center">
         <div class="child-prediction-text">fraud</div>
         <input type="range" min="1" max="100" step="1" [value]="apiResponse?.predictions?.topic_fraud * 100">
         <div class="child-prediction-text">{{ (apiResponse?.predictions?.topic_fraud * 100)?.toFixed(0) }}%</div>

@@ -1,26 +1,30 @@
 <section id="generic-view">
 
   <header>
-  <div class="d-flex">
+  <div class="d-flex align-items-center">
     <div class="flex-grow-1"><h1>Diagnose</h1></div>
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
       <div>
         <img src="./assets/image/refresh.png" class="image-width" (click)="onReload()" />
       </div>
-      <select name="client"
-        [(ngModel)]="selectedClient"
-        (change)="onClientChanged()"
-      >
-        <option *ngFor="let client of clients"
-                [value]="client.id">{{ client.name }}</option>
-      </select>
-      <select name="language"
-        [(ngModel)]="selectedLanguage"
-        (change)="onLanguageChanged()"
-      >
-        <option *ngFor="let language of languages"
-                [value]="language.code">{{ language.name }}</option>
-      </select>
+      <div class="mar-right">
+        <select name="client"
+          [(ngModel)]="selectedClient"
+          (change)="onClientChanged()"
+        >
+          <option *ngFor="let client of clients"
+                  [value]="client.id">{{ client.name }}</option>
+        </select>
+      </div>
+      <div class="mar-right">
+        <select name="language"
+          [(ngModel)]="selectedLanguage"
+          (change)="onLanguageChanged()"
+        >
+          <option *ngFor="let language of languages"
+                  [value]="language.code">{{ language.name }}</option>
+        </select>
+      </div>
       
       <label class="switch">
           <input type="checkbox" checked>
