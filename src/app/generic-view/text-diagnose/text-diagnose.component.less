@@ -34,11 +34,16 @@
     display: none;
     position: absolute;
     top: 65px;
-    background: #000000;
+    background: #00000069;
 
     width: auto;
+
+    &.show
+    {
+      display: block;
+    }
     .p-2 {
-      padding: 10px 0px 10px 10px;
+      padding: 5px 0px 5px 10px;
     }
     .child-hover-section:first-child {
       background: #292e2f;
@@ -55,6 +60,12 @@
       font-size: 11px;
       color: #000;
     }
+    .child-hover-section.p-2 {
+      border-bottom: 1px solid #ffffff33;
+  }
+  .child-hover-section.p-2:last-child {
+    border-bottom: 0px solid #ffffff33 !important;
+}
 
     .background-sec {
       display: flex;
