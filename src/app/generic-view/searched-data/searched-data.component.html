@@ -4,8 +4,9 @@
     <div class="topic">
         <div class="child-text">Topics</div>
         <div class="child-topic-box white d-flex align-center" *ngFor="let topic of topicsArr"> 
-            <i *ngIf="topic === '0'" class="material-icons icon-width">numeric-{{apiResponse?.topics[topic]}}-box</i>
-            <i  *ngIf="topic !== '0'"  class="material-icons icon-width">{{ allTopics[topic].icon }}</i>
+            <!-- images for topics using angular material -->
+            <!-- <i *ngIf="topic === '0'" class="material-icons icon-width">numeric-{{apiResponse?.topics[topic]}}-box</i>
+            <i  *ngIf="topic !== '0'"  class="material-icons icon-width">{{ allTopics[topic].icon }}</i> -->
             <div class="child-topic-box-text">{{ allTopics[topic].name }}</div>
             <div class="child-box-number">{{ apiResponse?.topics[topic] }}</div>
         </div>
