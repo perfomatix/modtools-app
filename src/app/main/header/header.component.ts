@@ -99,9 +99,9 @@ export class HeaderComponent implements OnInit {
    * @memberof HeaderComponent
    */
   subscribeToLanguageChange() {
-    this.searchService.getLanguage().subscribe(language =>{
-      if (language) {
-        this.selectedLangCode = language;
+    this.searchService.getLanguage().subscribe(langCode =>{
+      if (langCode) {
+        this.selectedLangCode = langCode;
         this.onSearch(this.searchString);
       }
     })
