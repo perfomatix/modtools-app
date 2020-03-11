@@ -19,10 +19,10 @@ export class LanguagePickerComponent implements OnInit {
   constructor(private userService:UserService) {}
 
   async ngOnInit() {
-    
+
     // Get the current user
     const user = await this.userService.me();
-    
+
     // Filter the user's languages by the ones they're allowed to use
     if (user?.config?.allowedLanguages) {
       this.languages = Languages.filter(lang => user.config.allowedLanguages.includes(lang.code));

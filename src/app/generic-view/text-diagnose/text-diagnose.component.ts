@@ -12,13 +12,13 @@ indexVal:any;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-  enter(e) {
-   this.indexVal =  e; 
-}
+  ngOnInit(): void {}
 
-leave(e) {
-  this.indexVal = '';
-}
+  enter(e) {
+   this.indexVal = e;
+  }
+
+  leave(e) {
+    this.indexVal = '';
+  }
 }

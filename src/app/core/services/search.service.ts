@@ -17,8 +17,8 @@ export class SearchService {
   public clientId = new BehaviorSubject<number>(null);
   public language = new BehaviorSubject<string>(null);
 
-  constructor(private httpClient: HttpClient) { }
-  
+  constructor(private httpClient: HttpClient) {}
+
   classifyText(requestBody: SearchInput, params: SearchParam): Observable<any> {
     const reqUrl = `${ApiUrl.classifyText}?extended=${params.extended}`;
     return this.httpClient.post(reqUrl, requestBody);

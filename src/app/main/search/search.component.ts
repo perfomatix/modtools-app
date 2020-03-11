@@ -20,7 +20,6 @@ export class SearchComponent implements OnInit {
   /**
    * @author Sijo Kuriakose
    * @description Key press event
-   * @memberof HeaderComponent
    */
 
   onKeyPressed(keyEvent) {

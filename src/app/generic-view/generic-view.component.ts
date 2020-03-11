@@ -26,7 +26,6 @@ export class GenericViewComponent implements OnInit {
   /**
    * @author Sijo Kuriakose
    * @description retrieve api response
-   * @memberof HeaderComponent
    */
 
   getApiResponse() {
@@ -38,7 +37,6 @@ export class GenericViewComponent implements OnInit {
   /**
    * @author Sijo Kuriakose
    * @description reload
-   * @memberof HeaderComponent
    */
 
   onReload() {
@@ -48,7 +46,6 @@ export class GenericViewComponent implements OnInit {
   /**
    * @author Sijo Kuriakose
    * @description on client id change
-   * @memberof HeaderComponent
    */
   onClientChanged() {
     this.searchService.storeClientId(this.selectedClient);
@@ -57,7 +54,6 @@ export class GenericViewComponent implements OnInit {
   /**
    * @author Sijo Kuriakose
    * @description on language change
-   * @memberof HeaderComponent
    */
   onLanguageChanged() {
     this.searchService.storeLanguage(this.selectedLanguage);
