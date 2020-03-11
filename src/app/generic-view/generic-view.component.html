@@ -7,6 +7,21 @@
       <div>
         <img src="./assets/image/refresh.png" class="image-width" (click)="onReload()" />
       </div>
+      <select name="client"
+        [(ngModel)]="selectedClient"
+        (change)="onClientChanged()"
+      >
+        <option *ngFor="let client of clients"
+                [value]="client.id">{{ client.name }}</option>
+      </select>
+      <select name="language"
+        [(ngModel)]="selectedLanguage"
+        (change)="onLanguageChanged()"
+      >
+        <option *ngFor="let language of languages"
+                [value]="language.code">{{ language.name }}</option>
+      </select>
+      
       <label class="switch">
           <input type="checkbox" checked>
           <span class="slider round"></span>

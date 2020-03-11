@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   user:User
   clientId: number;
   searchString: string;
+  selectedLangCode: string;
 
   constructor(
     public UserService: UserService,
@@ -25,7 +26,23 @@ export class HeaderComponent implements OnInit {
 
   async ngOnInit() {
     this.subscribeToReload();
+    this.subscribeToChangeInClientId();
+    this.subscribeToLanguageChange();
     this.user = await this.UserService.me();
+  }
+
+  /**
+   * @author Sijo Kuriakose
+   * @description client id subscription
+   * @memberof HeaderComponent
+   */
+  subscribeToChangeInClientId() {
+    this.searchService.getClientId().subscribe(clientId => {
+      if (clientId) {
+        this.clientId = clientId;
+        this.onSearch(this.searchString);
+      }
+    })
   }
 
   /**
@@ -63,8 +80,8 @@ export class HeaderComponent implements OnInit {
   onSearch (searchString) {
     this.searchString = searchString;
     let requestBody: SearchInput = {
-      clientId: this.clientId,
-      language: 'en', 
+      clientId: this.clientId ? this.clientId : 60,
+      language: this.selectedLangCode ? this.selectedLangCode : 'en', 
       text: searchString,
       contentType: AppConstants.contentType.shortText
     };
@@ -73,6 +90,20 @@ export class HeaderComponent implements OnInit {
     };
     this.searchService.classifyText(requestBody, params).subscribe(data => {
       this.searchService.storeApiResponse(data);
+    })
+  }
+
+  /**
+   * @author Sijo Kuriakose
+   * @description language change subscription
+   * @memberof HeaderComponent
+   */
+  subscribeToLanguageChange() {
+    this.searchService.getLanguage().subscribe(language =>{
+      if (language) {
+        this.selectedLangCode = language;
+        this.onSearch(this.searchString);
+      }
     })
   }
 

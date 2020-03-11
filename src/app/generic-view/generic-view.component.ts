@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '@app/core/services/search.service';
+import { Languages } from 'src/constants'
 
 @Component({
   selector: 'app-generic-view',
@@ -12,7 +13,9 @@ export class GenericViewComponent implements OnInit {
     { id: 60,  name: 'Live' },
     { id: 61,  name: 'Sandbox' }
   ]
-  selectedClient = this.clients[0];
+  selectedClient = this.clients[0].id;
+  selectedLanguage = 'en';
+  languages = Languages;
 
   constructor(private searchService: SearchService) { }
 
@@ -40,6 +43,24 @@ export class GenericViewComponent implements OnInit {
 
   onReload() {
     this.searchService.onReload();
+  }
+
+  /**
+   * @author Sijo Kuriakose
+   * @description on client id change
+   * @memberof HeaderComponent
+   */
+  onClientChanged() {
+    this.searchService.storeClientId(this.selectedClient);
+  }
+
+  /**
+   * @author Sijo Kuriakose
+   * @description on language change
+   * @memberof HeaderComponent
+   */
+  onLanguageChanged() {
+    this.searchService.storeLanguage(this.selectedLanguage);
   }
 
 }

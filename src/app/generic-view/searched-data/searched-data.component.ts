@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppConstants } from '@app/core/constants/app-constants';
-
+import { Topics } from 'src/constants';
 @Component({
   selector: 'app-searched-data',
   templateUrl: './searched-data.component.html',
@@ -15,7 +15,7 @@ export class SearchedDataComponent implements OnInit {
       this.formatTopics();
     }
   }
-  allTopics = AppConstants.topics;
+  allTopics = Topics;
   topicsArr = [];
 
   constructor() { }
@@ -29,7 +29,7 @@ export class SearchedDataComponent implements OnInit {
    * @memberof HeaderComponent
    */
   formatTopics() {
-    this.topicsArr = Object.keys(this.apiResponse && this.apiResponse.topics);
+    this.topicsArr = Object.keys(this.apiResponse.topics);
   }
 
 }
