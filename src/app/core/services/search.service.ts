@@ -16,6 +16,7 @@ export class SearchService {
   public reload = new BehaviorSubject<boolean>(null);
   public clientId = new BehaviorSubject<number>(null);
   public language = new BehaviorSubject<string>(null);
+  public contentType = new BehaviorSubject<string>(null);
 
   constructor(private httpClient: HttpClient) {}
 
@@ -54,6 +55,14 @@ export class SearchService {
 
   getLanguage() {
     return this.language.asObservable();
+  }
+
+  storeContentType(contentType) {
+    this.contentType.next(contentType);
+  }
+
+  getContentType() {
+    return this.contentType.asObservable();
   }
 
 }

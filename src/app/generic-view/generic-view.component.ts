@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '@app/core/services/search.service';
-import { Languages } from 'src/constants'
+import { Languages } from 'src/constants';
+import { AppConstants } from '@core/constants/app-constants';
 
 @Component({
   selector: 'app-generic-view',
@@ -16,6 +17,8 @@ export class GenericViewComponent implements OnInit {
   selectedClient = this.clients[0].id;
   selectedLanguage = 'en';
   languages = Languages;
+  contentTypes = AppConstants.contentType;
+  selectedContentType = this.contentTypes[0].id;
 
   constructor(private searchService: SearchService) { }
 
@@ -57,6 +60,14 @@ export class GenericViewComponent implements OnInit {
    */
   onLanguageChanged() {
     this.searchService.storeLanguage(this.selectedLanguage);
+  }
+
+  /**
+   * @author Sijo Kuriakose
+   * @description on Content type change
+   */
+  onContentTypeChanged() {
+    this.searchService.storeContentType(this.selectedContentType);
   }
 
 }

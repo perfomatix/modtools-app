@@ -4,11 +4,11 @@
   
   <main-search (searchKeyEntered)="onSearch($event)"></main-search>
   
-  <client-picker [selectedClient]="this.UserService.preferences.lastClientId"
+  <client-picker [selectedClient]="this.userService.preferences.lastClientId"
                  (clientChanged)="onUserChangedClient($event)"
   ></client-picker>
 
-  <language-picker [selectedLanguage]="this.UserService.preferences.language"
+  <language-picker [selectedLanguage]="this.userService.preferences.language"
                    (languageChanged)="onUserChangedLanguage($event)"
   ></language-picker>
   
