@@ -12,17 +12,17 @@ describe('UserFlyoutComponent', () => {
   let fixture: ComponentFixture<UserFlyoutComponent>;
 
   beforeEach(async(() => {
-    
+
     TestBed.configureTestingModule({
       declarations: [ UserFlyoutComponent ],
       imports: [ HttpClientTestingModule ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
-    
+
     httpClient = TestBed.get(HttpClient);
     httpTestingController = TestBed.get(HttpTestingController);
-    
+
   }));
 
   beforeEach(() => {

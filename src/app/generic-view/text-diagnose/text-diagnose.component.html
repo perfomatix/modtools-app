@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="mainly">
+    <div
+      class="child-of-mainly"
+      *ngFor="let word of response?.extended; index as in"
+    >
+      <span *ngIf="word?.text !== ''"
+        >{{ word?.original
+        }}<span *ngIf="(response?.extended)[in + 1]?.text === ''"
+          ><span
+            *ngFor="let subword of response?.extended | slice: in + 1:in + 2"
+            >{{ subword?.original }}</span
+          ></span
+        ></span
+      >
+      <span class=""  (mouseenter)="enter(in)" (mouseleave)="leave(in)"  *ngIf="word?.text !== ''">{{ word?.solution }} </span>
+
+      <div class="hover-section" [ngClass]="{'show': indexVal===in}">
+        <div class="d-flex p-2 child-hover-section" *ngFor="let token of word?.tokens">
+          <div class="number-sec">1</div>
+          <div class="text-sec">{{ token?.text }}</div>
+          <div class="subtext">{{ token?.language }}</div>
+          <div class="d-flex background-sec">
+            <span *ngFor="let topic of token?.topics | keyvalue">{{ topic?.value }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+      UI for second page in design
+  -->
+  <!-- <div class="main-sub-text">Spelling Mistakes</div>
+  <div class="mainly">Shitttt</div>
+  <div class="main-sub-text">What caused which tag</div>
+  <div class="mainly">
+    <div class="d-flex">
+        <div class="child-topic-box orange d-flex p-2">
+            <div class="child-topic-box-text">Vulgar</div>
+            <div class="child-box-number">2</div>
+        </div>
+        <div class="text-main">Shitt</div>
+    </div>
+  </div> -->
+</div>

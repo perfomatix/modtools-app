@@ -43,9 +43,6 @@ export class BreadcrumbsComponent implements OnInit {
         this.breadcrumbs = [];
         const url = snapshot.url;
         const routeData = route.snapshot.data;
-
-        console.log(routeData);
-
         const label = routeData.breadcrumb;
         const params = snapshot.root.params;
 

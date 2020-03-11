@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://virtserver.swaggerhub.com/twohat/inbox/2.1.1',
+  apiBaseUrl: 'https://virtserver.swaggerhub.com/twohat/classifyText/2.0.1',
   sentry: {
     dsn: 'https://1f168fd1b0fa4b6999f1a901c0804a91@sentry.io/1788710',
     environment: 'development',

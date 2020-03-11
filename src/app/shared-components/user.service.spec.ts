@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserService } from './user.service';
 
 describe('UserService', () => {
-  
+
   let httpClient:HttpClient;
   let httpTestingController:HttpTestingController;
   let service: UserService;
