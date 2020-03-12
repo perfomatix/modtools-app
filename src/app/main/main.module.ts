@@ -10,6 +10,7 @@ import { LanguagePickerComponent } from './language-picker/language-picker.compo
 import { A11yFlyoutComponent } from './a11y-flyout/a11y-flyout.component';
 import { UserFlyoutComponent } from './user-flyout/user-flyout.component';
 import { ClientPickerComponent } from './client-picker/client-picker.component';
+import { SharedComponentsModule } from '@app/shared-components/shared-components.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ClientPickerComponent } from './client-picker/client-picker.component';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SharedComponentsModule
   ],
   exports: [
     HeaderComponent
