@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit {
   searchString: string;
   selectedLangCode: string;
   contentType: string;
+  isLoaded: boolean = false;
+  loading = false;
 
   constructor(
     public userService: UserService,
@@ -77,6 +79,7 @@ export class HeaderComponent implements OnInit {
    * @description search api function
    */
   onSearch (searchString) {
+    this.loading = true;
     this.searchString = searchString;
     const requestBody: SearchInput = {
       clientId: this.clientId ? this.clientId : DefaultClientId,
@@ -89,6 +92,7 @@ export class HeaderComponent implements OnInit {
     };
     this.searchService.classifyText(requestBody, params).subscribe(data => {
       this.searchService.storeApiResponse(data);
+      this.loading = false;
     })
   }
 

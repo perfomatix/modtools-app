@@ -19,6 +19,7 @@ export class GenericViewComponent implements OnInit {
   languages = Languages;
   contentTypes = AppConstants.contentType;
   selectedContentType = this.contentTypes[0].id;
+  loading = false;
 
   constructor(private searchService: SearchService) { }
 
@@ -33,6 +34,7 @@ export class GenericViewComponent implements OnInit {
 
   getApiResponse() {
     this.searchService.getApiResponse().subscribe(response => {
+      this.loading = false;
       this.response = response;
     });
   }
@@ -43,6 +45,7 @@ export class GenericViewComponent implements OnInit {
    */
 
   onReload() {
+    this.loading = true;
     this.searchService.onReload();
   }
 
@@ -51,6 +54,7 @@ export class GenericViewComponent implements OnInit {
    * @description on client id change
    */
   onClientChanged() {
+    this.loading = true;
     this.searchService.storeClientId(this.selectedClient);
   }
 
@@ -59,6 +63,7 @@ export class GenericViewComponent implements OnInit {
    * @description on language change
    */
   onLanguageChanged() {
+    this.loading = true;
     this.searchService.storeLanguage(this.selectedLanguage);
   }
 
@@ -67,6 +72,7 @@ export class GenericViewComponent implements OnInit {
    * @description on Content type change
    */
   onContentTypeChanged() {
+    this.loading = true;
     this.searchService.storeContentType(this.selectedContentType);
   }
 

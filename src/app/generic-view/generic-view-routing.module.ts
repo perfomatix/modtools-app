@@ -5,6 +5,7 @@ import { GenericViewComponent } from './generic-view.component';
 
 const routes: Routes = [{
   path: '',
+  data: { breadcrumb: 'fdfdf' },
   component: GenericViewComponent
 }];
 

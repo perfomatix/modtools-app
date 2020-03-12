@@ -3,5 +3,5 @@
         (change)="onClientChanged()"
 >
   <option *ngFor="let client of clients"
-          [ngValue]="client.id">{{ client.name }}</option>
+          [value]="client.id">{{ client.name }}</option>
 </select>
