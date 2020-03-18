@@ -1,0 +1,20 @@
+<div id="aiPrediction">
+    <div class="prediction-section">
+        <div class="child-text">AI Prediction</div>
+        <div class="d-flex mb-2 align-center">
+            <div class="child-prediction-text">en</div>
+            <input type="range" min="1" max="100" step="1" [value]="aiPrediction?.lang_en * 100">
+            <div class="child-prediction-text">{{ (aiPrediction?.lang_en * 100)?.toFixed(0) }}%</div>
+        </div>
+        <div class="d-flex mb-2 align-center">
+            <div class="child-prediction-text">fr</div>
+            <input type="range" min="1" max="100" step="1" [value]="aiPrediction?.lang_fr * 100">
+            <div class="child-prediction-text">{{ (aiPrediction?.lang_fr * 100)?.toFixed(0) }}%</div>
+        </div>
+        <div class="d-flex align-center">
+            <div class="child-prediction-text">fraud</div>
+            <input type="range" min="1" max="100" step="1" [value]="aiPrediction?.topic_fraud * 100">
+            <div class="child-prediction-text">{{ (aiPrediction?.topic_fraud * 100)?.toFixed(0) }}%</div>
+        </div>
+</div>
+</div>

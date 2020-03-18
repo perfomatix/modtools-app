@@ -31,7 +31,7 @@
     </div>
 </div>
 <hr />
-<div class="prediction-section">
+<!-- <div class="prediction-section">
     <div class="child-text">AI Prediction</div>
     <div class="d-flex mb-2 align-center">
         <div class="child-prediction-text">en</div>
@@ -48,7 +48,8 @@
         <input type="range" min="1" max="100" step="1" [value]="apiResponse?.predictions?.topic_fraud * 100">
         <div class="child-prediction-text">{{ (apiResponse?.predictions?.topic_fraud * 100)?.toFixed(0) }}%</div>
     </div>
-</div>
+</div> -->
+<app-ai-prediction-percentage [aiPrediction]="apiResponse?.predictions"></app-ai-prediction-percentage>
 <hr />
 <div class="button-sec">
     <button class="black">Escalate</button>

@@ -1,19 +1,14 @@
 <div class="container">
   <div class="mainly">
-    <div
-      class="child-of-mainly"
-      *ngFor="let word of response?.extended; index as in"
-    >
-      <span *ngIf="word?.text !== ''"
-        >{{ word?.original
-        }}<span *ngIf="(response?.extended)[in + 1]?.text === ''"
-          ><span
-            *ngFor="let subword of response?.extended | slice: in + 1:in + 2"
-            >{{ subword?.original }}</span
-          ></span
-        ></span
-      >
-      <span class=""  (mouseenter)="enter(in)" (mouseleave)="leave(in)"  *ngIf="word?.text !== ''">{{ word?.solution }} </span>
+    <div class="child-of-mainly" *ngFor="let word of response?.extended; index as in">
+      <span *ngIf="word?.text !== ''">
+       {{ word?.original }}
+        <span *ngIf="(response?.extended)[in + 1]?.text === ''">
+          <span *ngFor="let subword of response?.extended | slice: in + 1:in + 2">{{ subword?.original }}</span>
+        </span>
+      </span>
+      <span class="solution-background" (mouseenter)="enter(in)" (mouseleave)="leave(in)" *ngIf="word?.text !== ''">{{ word?.solution }}
+      </span>
 
       <div class="hover-section" [ngClass]="{'show': indexVal===in}">
         <div class="d-flex p-2 child-hover-section" *ngFor="let token of word?.tokens">

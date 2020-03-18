@@ -22,8 +22,17 @@
       padding: 10px;
       &:first-child {
         color: #f4f4f4;
+        font-family:"Montserrat-Bold";        
         background: #292e2f 0% 0% no-repeat padding-box;
       }
+    }
+    .solution-background{
+      background: #7ED321 0% 0% no-repeat padding-box;
+      border-radius: 4px;
+      opacity: 1;
+      color: #1B1F22;     
+      margin: 18px 0 0 0;
+      font-family:"OpenSans-Semibold"; 
     }
   }
   .d-flex {
@@ -33,11 +42,10 @@
   .hover-section {
     display: none;
     position: absolute;
-    top: 65px;
+    top: 75px;
     background: #00000069;
-
     width: auto;
-
+    z-index: 1;
     &.show
     {
       display: block;
